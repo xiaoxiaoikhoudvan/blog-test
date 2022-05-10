@@ -1,47 +1,40 @@
-# HTML常用标签
+# JavaScript的诞生
 
-## 一、a 标签
-a元素（或称锚元素）可以通过它的 href 属性创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。a 中的内容应该应该指明链接的意图。如果存在 href 属性，当 a 元素聚焦时按下回车键就会激活它。
+## 一、JavaScript的诞生
+1995年Sun公司将Oak语言改名为Java，正式向市场推出。
 
-代码示例：
-```
-<p>You can reach Michael at:</p>
+Sun公司大肆宣传，许诺这种语言可以"一次编写，到处运行"（Write Once, Run Anywhere），它看上去很可能成为未来的主宰。
 
-<ul>
-  <li><a href="https://example.com">Website</a></li>
-  <li><a href="mailto:m.bluth@example.com">Email</a></li>
-  <li><a href="tel:+123456789">Phone</a></li>
-</ul>
-```
+网景公司动了心，决定与Sun公司结成联盟。它不仅允许Java程序以applet（小程序）的形式，直接在浏览器中运行；甚至还考虑直接将Java作为脚本语言嵌入网页，只是因为这样会使HTML网页过于复杂，后来才不得不放弃。
 
-## 二、img 标签
+总之，当时的形势就是，网景公司的整个管理层，都是Java语言的信徒，Sun公司完全介入网页脚本语言的决策。因此，Javascript后来就是网景和Sun两家公司一起携手推向市场的，这种语言被命名为"Java+script"并不是偶然的。
 
-img 元素将一份图像嵌入文档
+此时，34岁的系统程序员Brendan Eich登场了。1995年4月，网景公司录用了他。
 
-代码示例：
-```
-<img class="fit-picture"
-     src="/media/cc0-images/grapefruit-slice-332-332.jpg"
-     alt="Grapefruit slice atop a pile of other slices">
-```
-## 三、table 标签
+Brendan Eich的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将Scheme语言作为网页脚本语言的可能性。Brendan Eich本人也是这样想的，以为进入新公司后，会主要与Scheme语言打交道。
 
-table 元素表示表格数据 — 即通过二维数据表表示的信息
+仅仅一个月之后，1995年5月，网景公司做出决策，未来的网页脚本语言必须"看上去与Java足够相似"，但是比Java简单，使得非专业的网页作者也能很快上手。这个决策实际上将Perl、Python、Tcl、Scheme等非面向对象编程的语言都排除在外了。
 
-代码示例：
-```
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">The table header</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-        </tr>
-    </tbody>
-</table>
-```
+Brendan Eich被指定为这种"简化版Java语言"的设计师。
+
+但是，他对Java一点兴趣也没有。为了应付公司安排的任务，他只用10天时间就把Javascript设计出来了
+
+## 二、JavaScript的10个设计缺陷
+
+* 为什么JavaScript有设计缺陷?
+1. 设计阶段过于仓促
+2. 没有先例
+3. 过早的标准化
+---
+* Javascript的10个设计缺陷
+1. 不适合开发大型程序
+2. 非常小的标准库
+3. null和undefined
+4. 全局变量难以控制
+5. 自动插入行尾分号
+6. 加号运算符
+7. NaN
+8. 数组和对象的区分
+9. == 和 ===
+10. 基本类型的包装对象
 
