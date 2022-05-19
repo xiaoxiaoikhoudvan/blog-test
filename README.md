@@ -1,66 +1,59 @@
-# js基础语法
+# js对象基本用法
 
-## 1.什么是表达式
+## 1.声明对象的两种语法
 
-一条语句执行一个动作，一个表达式产生一个值，意思是一个表达式执行后一定会生成一个值，而语句不一定会产生值。
-
-## 2.标识符
-
-代码中用来标识变量 (en-US)、函数、或属性 (en-US)的字符序列。
-在JavaScript中，标识符只能包含字母或数字或下划线（“_”）或美元符号（“$”），且不能以数字开头。标识符与字符串不同之处在于字符串是数据，而标识符是代码的一部分。在 JavaScript 中，无法将标识符转换为字符串，但有时可以将字符串解析为标识符。
-
-## 3. if...else
-
-当指定条件为真，if 语句会执行一段语句。如果条件为假，则执行另一段语句。
-
-语法：
+* 写法1
 ```
-if (condition)
-   statement1
-[else
-   statement2]
+let obj = {'name':'mike','age':18}
 ```
+* 写法2
+```
+let obj = new Object({'name':'mike'})
+```
+* 细节
+键名是字符串，不是标识符，可以包含任意字符。
+引号可省略，省略之后就只能写标识符。
+就算引号省略了，键名也还是字符串。 
 
+## 2. 删除属性
 ```
-condition
+delete obj.xxx 或 delete obj['xxx']
 ```
-值为真或假的表达式
-```
-statement1
-```
-当condition为真时执行的语句。可为任意语句，包括更深层的内部if语句。要执行多条语句，使用块语句（{ ... }）将这些语句分组；若不想执行语句，则使用空语句。 
-```
-statement2
-```
-如果condition为假且 else从句存在时执行的语句。可为任意语句，包括块语句和嵌套的if语句。
+即可删除obj的xxx属性
+注意区分属性值为undefined和不含属性名
 
-## 4. while
-
-while 语句可以在某个条件表达式为真的前提下，循环执行指定的一段代码，直到那个表达式不为真时结束循环。
-
-语法：
+# 3. 查看属性
+* 查看自身所有属性
 ```
-while (condition)
-  statement
+Object.keys(obj)
+```
+* 查看自身+共有属性
+```
+console.dir(obj)
+```
+* 判断一个属性是自身的还是共有的
+```
+obj.hasOwnProperty('toString')
 ```
 
+# 4. 修改或增加对象的属性
+* 直接赋值
 ```
-condition
+let obj = {name:'mike'}
+obj.name = 'xiaohong'
+obj['name'] = 'xiaohong'
+let key = 'name'
+obj[key] = 'xiaohong'
 ```
-条件表达式，在每次循环前被求值。如果求值为真，statement就会被执行。如果求值为假，则跳出while循环执行后面的语句。
+
+* 批量赋值
 ```
-statement
+Object.assign(obj,{age:19,gender:'man'})
 ```
-只要条件表达式求值为真，该语句就会一直被执行。要在循环中执行多条语句，可以使用块语句（{ ... }）包住多条语句。注意：使用break语句在condition计算结果为真之前停止循环。
 
-## 5. break
+# 5.'name' in obj和obj.hasOwnProperty('name') 的区别
 
-break 语句中止当前循环，switch语句或label 语句，并把程序控制流转到紧接着被中止语句后面的语句。
+都是两种查看属性是不是在对象里的方法
+前者自身属性和共有属性都返回true，后者仅仅是自身属性才返回true
 
-## 6. continue
 
-continue 声明终止当前循环或标记循环的当前迭代中的语句执行，并在下一次迭代时继续执行循环。
-
-## 7. label
-
-标记语句可以和 break 或 continue 语句一起使用。标记就是在一条语句前面加个可以引用的标识符
